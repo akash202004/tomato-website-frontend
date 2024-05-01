@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import "./ExportMenu.css";
 import { menu_list } from "../../assets/assets";
 
@@ -6,9 +7,9 @@ const ExploreMenu = ({ category, setCategory }) => {
     <div className="explore-menu" id="explore-menu">
       <h1>Explore our menu</h1>
       <p className="explore-menu-text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
-        voluptatibus nulla facere perferendis, ducimus voluptate sequi et
-        provident earum, sed rem dolor.
+        Choose from a diverse menu featuring a delectable array of dishes. Our
+        mission is to satisfy your cravings and elevate your dinning experience,
+        one delicious meal at a time.
       </p>
       <div className="explore-menu-list">
         {menu_list.map((item, index) => {
