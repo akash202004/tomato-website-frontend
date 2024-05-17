@@ -22,6 +22,7 @@ const Cart = () => {
         <br />
         <hr />
         {food_list.map((item, index) => {
+          if (!item) return null;
           if (cartItems[item._id] > 0) {
             return (
               <div key={index}>
