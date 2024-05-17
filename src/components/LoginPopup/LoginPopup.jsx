@@ -28,13 +28,18 @@ const LoginPopup = ({ setShowLogin }) => {
     } else {
       newUrl += "/api/user/register";
     }
-    const response = await axios.post(newUrl, data);
-    if (response.data.success) {
-      setToken(response.data.data);
-      localStorage.setItem("token", response.data.data);
-      setShowLogin(false);
-    } else {
-      alert(response.data.message);
+    try {
+      const response = await axios.post(newUrl, data);
+      if (response.data.success) {
+        setToken(response.data.data);
+        localStorage.setItem("token", response.data.data);
+        setShowLogin(false);
+        alert("Login successful!");
+      } else {
+        alert(`Login failed: ${response.data.message}`);
+      }
+    } catch (error) {
+      alert(`Login failed: ${error.message}`);
     }
   };
 
