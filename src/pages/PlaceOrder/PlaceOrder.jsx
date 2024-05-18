@@ -38,16 +38,15 @@ const PlaceOrder = () => {
       }
     });
     let orderData = {
-      address: data,
       items: orderItems,
-      amont: getTotalCartAmount() + 5,
+      amount: getTotalCartAmount() + 5,
+      address: data,
     };
-    let response = await axios.post(url + "/api/order/place", orderData, {
+    let response = await axios.post(url + "/api/order/placeOrder", orderData, {
       headers: { token },
     });
     if (response.data.success) {
-      alert("Order placed successfully");
-      const { session_url } = response.data;
+      const { session_url } = response.data.data;
       window.location.replace(session_url);
     } else {
       alert("Order failed");
