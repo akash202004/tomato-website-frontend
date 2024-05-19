@@ -45,6 +45,17 @@
   font-weight: 500;
 }
 
+.no-orders {
+  font-size: 20px;
+  color: #454545;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.no-orders span {
+  color: tomato;
+}
+
 @media (max-width: 900px) {
   .my-orders-order {
     grid-template-columns: 1fr 2fr 1fr;
