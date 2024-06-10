@@ -9,7 +9,7 @@ const StoreContextProvider = (props) => {
   const [token, setToken] = useState("");
   const [food_list, setFood_list] = useState([]);
 
-  const url = "https://tomato-website-backend.onrender.com";
+  const url = import.meta.env.VITE_APP_URL;
 
   const addToCart = async (itemId) => {
     if (!cartItems[itemId]) {
