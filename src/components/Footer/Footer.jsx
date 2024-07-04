@@ -8,9 +8,9 @@ const Footer = () => {
         <div className="footer-content-left">
           <img src={assets.logo} alt="logo" />
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic
-            dolores nam quia blanditiis velit est, voluptatibus totam
-            repellendus vitae sint recusandae optio repellat
+            Choose from a diverse menu featuring a delectable array of dishes.
+            Our mission is to satisfy your cravings and elevate your dinning
+            experience, one delicious meal at a time.
           </p>
           <div className="footer-social-icon">
             <img src={assets.facebook_icon} alt="facebook" />

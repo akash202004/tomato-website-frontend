@@ -18,27 +18,35 @@ const StoreContextProvider = (props) => {
       setCartItem((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     }
     if (token) {
-      await axios.post(
-        url + "/api/cart/add",
-        { itemId },
-        { headers: { token } }
-      );
+      try {
+        await axios.post(url + "/api/cart/add", { itemId }, { headers: token });
+      } catch (error) {
+        console.error("Error adding to cart:", error);
+      }
     }
   };
 
   const fetchFoodList = async () => {
-    const response = await axios.get(url + "/api/food/list");
-    setFood_list(response.data.data);
+    try {
+      const response = await axios.get(url + "/api/food/list");
+      setFood_list(response.data.data);
+    } catch (error) {
+      console.error("Error fetching food list:", error);
+    }
   };
 
   const removeFromCart = async (itemId) => {
     setCartItem((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     if (token) {
-      await axios.post(
-        url + "/api/cart/remove",
-        { itemId },
-        { headers: { token } }
-      );
+      try {
+        await axios.post(
+          url + "/api/cart/remove",
+          { itemId },
+          { headers: token }
+        );
+      } catch (error) {
+        console.error("Error removing from cart:", error);
+      }
     }
   };
 
@@ -56,20 +64,28 @@ const StoreContextProvider = (props) => {
   };
 
   const loadCartData = async (token) => {
-    const response = await axios.post(
-      url + "/api/cart/get",
-      {},
-      { headers: { token } }
-    );
-    setCartItem(response.data.data);
+    try {
+      const response = await axios.post(
+        url + "/api/cart/get",
+        {},
+        { headers: token }
+      );
+      setCartItem(response.data.data);
+    } catch (error) {
+      console.error("Error loading cart data:", error);
+    }
   };
 
   useEffect(() => {
     async function loadData() {
-      await fetchFoodList();
-      if (localStorage.getItem("token")) {
-        setToken(localStorage.getItem("token"));
-        await loadCartData(localStorage.getItem("token"));
+      try {
+        await fetchFoodList();
+        if (localStorage.getItem("token")) {
+          setToken(localStorage.getItem("token"));
+          await loadCartData(localStorage.getItem("token"));
+        }
+      } catch (error) {
+        console.error("Error loading data:", error);
       }
     }
     loadData();
