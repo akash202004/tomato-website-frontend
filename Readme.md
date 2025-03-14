@@ -2,6 +2,10 @@
 
 Tomato Website is a comprehensive 10+ page food ordering platform built using the MERN stack (MongoDB, Express, React, Node.js). This platform features a user-friendly interface for browsing, viewing, and ordering food items, as well as an admin panel for managing food inventory and real-time analytics.
 
+[Backend Repo Link](https://github.com/akash202004/tomato-website-backend)
+
+[Admin Panel Repo Link](https://github.com/akash202004/tomato-website-admin-panel)
+
 ## Live Link
 
 [Tomato Website Live](https://www.youtube.com/watch?v=UVjA_RZHbkg)
